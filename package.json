@@ -4,12 +4,13 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node src/app.js",
+    "start": "node src/app2.js",
     "test": "jest"
   },
   "author": "David Janda",
   "license": "ISC",
   "dependencies": {
+    "curl": "^0.1.4",
     "jquery": "^3.5.1",
     "jsdom": "^16.4.0"
   },
