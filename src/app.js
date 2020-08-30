@@ -1,13 +1,13 @@
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const fs = require('fs');
+const f = require('./functions');
 
-xml = fs.readFileSync('res/data.xml');
+xml = fs.readFileSync('res/data2.xml');
 
-const dom = new JSDOM(""); // Create empty DOM, the imput param here is for HTML not XML, and we don want to parse HTML
-const DOMParser = dom.window.DOMParser; // Get DOMParser, same API as in browser
-const parser = new DOMParser;
-const document = parser.parseFromString(xml, "text/xml"); // Create document by parsing XML
-const xmlString = document.documentElement.outerHTML; // save the xml after modifications 
+dom = new JSDOM(xml);
+const $ = require("jquery")(dom.window);
 
-console.log(xmlString);
+f.replaceTag($, 'tr', 'div');
+
+console.log(f.serialize($));
