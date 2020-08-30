@@ -11,6 +11,10 @@ let self = (module.exports = {
     },
 
     serialize: function ($) {
-        return $('body').html();
+        return $('*').html();
+    },
+
+    wrapXhtml: function (html) {
+        return '<doc xmlns="http://www.w3.org/1999/xhtml" xmlns:asp="http://www.whatever.com">\n' + html + '\n</doc>'
     }
 });
