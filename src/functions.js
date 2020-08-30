@@ -16,5 +16,14 @@ let self = (module.exports = {
 
     wrapXhtml: function (html) {
         return '<doc xmlns="http://www.w3.org/1999/xhtml" xmlns:asp="http://www.whatever.com">\n' + html + '\n</doc>'
+    },
+
+    testJqueryImport: function (jsdom) {
+        const $ = require("jquery")(dom.window);
+        //console.log($);
+        $('asp\:Content').replaceWith('DED');
+        console.log(dom.serialize());
+
     }
+
 });
